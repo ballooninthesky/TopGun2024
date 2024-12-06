@@ -1,0 +1,38 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  gap: 15px;
+  padding: 20px;
+  height: 100vh; /* Full viewport height to center vertically */
+}
+
+.mqtt-button {
+  width: 200px;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.mqtt-button-primary {
+  background-color: #1976d2;
+}
+
+.mqtt-button-secondary {
+  background-color: #9c27b0;
+}
+
+.mqtt-button-success {
+  background-color: #4caf50;
+}
+
+.mqtt-button:hover {
+  opacity: 0.9;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
