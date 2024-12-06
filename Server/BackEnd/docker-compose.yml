@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  flask:
+    image: flask-app  # You can replace this with your actual Flask image or build context
+    container_name: web-1
+    build: .
+    volumes:
+      - .:/app 
+    ports:
+      - "5000:5000"  # Expose Flask app on port 5000
+    environment:
+      DB_HOST: db  # Make sure it matches the db service name below
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db  # This makes sure Flask waits for db to be ready
+
+  db:
+    image: postgres:13  # Use PostgreSQL official image
+    container_name: db-1
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"  # Expose PostgreSQL on port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist data across container restarts
+
+volumes:
+  postgres_data:

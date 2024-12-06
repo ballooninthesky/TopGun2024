@@ -1,0 +1,16 @@
+.env
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__
+
+# Ignore virtual environment
+venv/
+# Ignore specific files and directories
+sockerSever/
+mqtt/
+mosquitto/
+app.py
+api/
+
